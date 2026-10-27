@@ -1,0 +1,46 @@
+{
+  "name": "light-mail",
+  "productName": "Light Mail",
+  "version": "1.0.0",
+  "description": "Outlook-style desktop mail for Gmail and Outlook accounts.",
+  "main": "electron/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.smartmail.desktop",
+    "productName": "Light Mail",
+    "directories": {
+      "output": "dist"
+    },
+    "electronDist": "node_modules/electron/dist",
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "package.json",
+      "node_modules/sql.js/**/*"
+    ],
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        "nsis"
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Light Mail"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "sql.js": "^1.15.2"
+  }
+}
